@@ -116,9 +116,9 @@ uniq(names, function(uniqArr){
 var each = function(arr, callback) {
   for (var i = 0; i < arr.length; i++) {
     var item = arr[i];
-    var indice = i
+    var indice = i;
+    callback(item, indice)
   };
-  callback(item, indice)
 };
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -129,15 +129,17 @@ each(names, function(item, indice){
 
 
 
-
-
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-
-
-
-
  //code here for getUserById
+var getUserById = function(obj, str, callback) {
+  for (var i = 0; i < obj.length; i++) {
+    if (obj[i].id === str) {
+      var user = obj[i];
+    };
+  };
+  callback(user);
+};
 
 var users = [
   {
@@ -163,3 +165,5 @@ var users = [
 getUserById(users, '16t', function(user){
   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address); 
 });
+
+
